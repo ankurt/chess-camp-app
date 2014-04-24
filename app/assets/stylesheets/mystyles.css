@@ -1,0 +1,11 @@
+body {
+	background: #ddd;
+}
+
+.top-bar {
+	margin-bottom: 0px !important;
+}
+
+.small-4 .panel {
+	margin-top: 10px;
+}
