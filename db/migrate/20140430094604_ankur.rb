@@ -9,7 +9,7 @@ class Ankur < ActiveRecord::Migration
   end
 
   def down
-    admin = User.find_by_email "admin@example.com"
+    admin = User.find_by_username "ankur"
     User.delete admin
   end
 end
