@@ -1,20 +1,22 @@
-<h3>Log In</h3>
+</br>
 
-<%= form_tag sessions_path do %>
+<div id="login-div" class="small-3 small-centered columns">
+  <h3>Login</h3>
 
-	<div class="control-group">
-    <%= label_tag :username %>
-    <div class="controls">
-      <%= text_field_tag :username, params[:username] %>
+  <%= form_tag sessions_path do %>
+
+  	<div class="control-group">
+      <div class="controls">
+        <%= text_field_tag :username, params[:username], placeholder: "username" %>
+      </div>
     </div>
-  </div>
 
-	<div class="control-group">
-    <%= label_tag :password %>
-    <div class="controls">
-      <%= password_field_tag :password %>
+  	<div class="control-group">
+      <div class="controls">
+        <%= password_field_tag :password, value: "password" %>
+      </div>
     </div>
-  </div>
 
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
+    <div class="actions"><%= submit_tag "login" %></div>
+  <% end %>
+</div>

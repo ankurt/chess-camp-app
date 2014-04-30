@@ -9,3 +9,31 @@ body {
 .small-4 .panel {
 	margin-top: 10px;
 }
+
+#login-div {
+	background-color: #fff;
+	border-radius: 20px;
+	padding: 1em;
+	margin-top: 3em;
+}
+
+#login-div div.actions input{
+	padding: 1em;
+	background-color: #FF7E7E;
+	color: #fff;
+	border-radius: 10px;
+	width: 50%;
+	margin-left: 4.4em;
+	border: none;
+}
+
+#login-div h3 {
+	font-family: "Impact";
+}
+
+#backimg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	opacity: 0.2;
+}
