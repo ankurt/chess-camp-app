@@ -27,6 +27,9 @@ gem 'jquery-rails'
 # Turbolinks isn't playing nicely with foundation so for now remove it from standard rails
 # gem 'turbolinks'
 
+# Authorization of logins
+gem 'cancancan', '~> 1.7'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
