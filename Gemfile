@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Authorization gem
 gem 'cancan'
 
+# Gem which allows us to make nested forms
+gem "nested_form"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
