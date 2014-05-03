@@ -1,0 +1,19 @@
+<h3>Location Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= link_to @location.name, location_path %><br /><br />
+
+<strong>Cost:&nbsp;&nbsp;</strong> 
+  <%= number_to_currency(@camp.cost) %><br /><br />
+
+<strong>Street 1:&nbsp;&nbsp;</strong> 
+  <%= @location.street_1 %><br /><br />
+
+<% if @location.street_2.nil? %>
+<strong>Street 2:</strong>
+	<%= @location.street_2 %>
+<% end %>
+
+
+
+<%= link_to "Edit this camp", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy camp', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
