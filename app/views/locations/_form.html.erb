@@ -1,11 +1,31 @@
 <%= simple_form_for(@location) do |f| %>
   <%= f.error_notification %>
+  <div class="row">
+  <div class="small-6 columns">
 
-  <div class="form-inputs">
-    <%= f.input :active %>
+	  <div class="form-inputs">
+	    <%= f.input :name %>
+
+	  	<%= f.input :street_1 %>
+
+	  	<%= f.input :street_2 %>
+
+	  	<%= f.input :city %>
+
+	  	<%= f.input :state %>
+
+	  	<%= f.input :max_capacity %>
+
+
+	  </div>
+  </div>
+  <div class="small-6 columns">
+  	&nbsp;
+  </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+	    <div class="form-actions">
+	      <%= f.submit nil, class: 'button radius' %>
+	      <%= link_to 'Back to list of Locations', locations_path, :class => 'button secondary radius' %>
+	    </div>
+	<% end %>

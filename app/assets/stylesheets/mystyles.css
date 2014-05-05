@@ -10,6 +10,10 @@ body {
 	margin-top: 10px;
 }
 
+.txt-c {
+	text-align: center;
+}
+
 #login-div {
 	background-color: #fff;
 	border-radius: 20px;
@@ -38,7 +42,11 @@ body {
 	opacity: 0.1;
 }
 
+#map {
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px #999;
+}
+
 table {
-	padding: 1em;
 	border-radius: 15px;
 }

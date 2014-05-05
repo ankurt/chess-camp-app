@@ -27,15 +27,19 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
 
-    respond_to do |format|
-      if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @location }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
+    if @location.save
+      redirect_to @location, notice: "#{@location.name} was added to the system."
+    else
+      render action: 'new'
     end
+      # if @location.save
+      #   format.html { redirect_to @location, notice: 'Location was successfully created.' }
+      #   format.json { render action: 'show', status: :created, location: @location }
+      # else
+      #   format.html { render action: 'new' }
+      #   format.json { render json: @location.errors, status: :unprocessable_entity }
+      # end
+
   end
 
   # PATCH/PUT /locations/1
@@ -70,6 +74,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params[:location]
+      params.require(:location).permit(:name, :street_1, :max_capacity, :street_2, :state, :city, :zip, :active)
     end
 end
