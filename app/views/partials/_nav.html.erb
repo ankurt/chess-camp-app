@@ -44,6 +44,14 @@
           </li>
 
           <li class="has-dropdown">
+            <%= link_to "Students", students_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Students", students_path %></li>
+              <li><%= link_to "Add a Student", new_student_path %></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
             <%= link_to "Families", families_path %>
             <ul class="dropdown">
               <li><%= link_to "List Families", families_path %></li>

@@ -1,0 +1,6 @@
+<h3> Students Associated </h3>
+<ul>
+	<% @family.students.to_a.each do |student| %>
+		<li><%= student.first_name %> <%= student.last_name %></li>
+	<% end %>
+</ul>

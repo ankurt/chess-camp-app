@@ -15,9 +15,9 @@ class FamiliesController < ApplicationController
   end
 
   def create
-    @family = Location.new(family_params)
-    if @location.save
-      redirect_to @family, notice: "#{family.name} family was added to the system."
+    @family = Family.new(family_params)
+    if @family.save
+      redirect_to @family, notice: "#{@family.family_name} family was added to the system."
     else
       render action: 'new'
     end
@@ -35,14 +35,10 @@ class FamiliesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @family.update(family_params)
-        format.html { redirect_to @family, notice: '#{@family.name} family was revised in the system' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @family.errors, status: :unprocessable_entity }
-      end
+    if @family.update(family_params)
+      redirect_to @family, notice: "#{@family.family_name} family was revised in the system"
+    else
+      render action: 'edit'
     end
   end
 

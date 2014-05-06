@@ -3,6 +3,7 @@
 	<li>Parent First Name: <%= @family.parent_first_name %></li>
 	<li>Phone Number: <%= number_to_phone(@family.phone) %></li>
 	<li>Email: <%= @family.email %></li>
+	<li>Active: <%= @family.active == true ? "Yes" : "No" %>
 </ul>
 
 <%= link_to "Edit this family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;

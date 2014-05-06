@@ -6,6 +6,11 @@ body {
 	margin-bottom: 0px !important;
 }
 
+.has-dropdown a{
+	font-size: 12px !important;
+	padding-right: 0.2em !important;
+}
+
 .small-4 .panel {
 	margin-top: 10px;
 }
