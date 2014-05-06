@@ -43,15 +43,22 @@ class LocationsController < ApplicationController
 
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @location.update(location_params)
+  #       format.html { redirect_to @location, notice: '#{@location.name} location was revised in the system' }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: 'edit' }
+  #       format.json { render json: @location.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
   def update
-    respond_to do |format|
-      if @location.update(location_params)
-        format.html { redirect_to @location, notice: '#{@location.name} location was revised in the system' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
+    if @location.update(location_params)
+      redirect_to @location, notice: "#{@location.name} location was revised in the system."
+    else
+      render action: 'edit'
     end
   end
 

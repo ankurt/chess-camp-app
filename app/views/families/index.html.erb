@@ -1,0 +1,25 @@
+<h1>Listing families</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Family Name</th>
+      <th>Parent</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+    <% @families.each do |family| %>
+      <tr>
+        <td><%= link_to family.family_name, family %></td>
+        <td><%= family.parent_first_name %></td>
+        <td><%= number_to_phone(family.phone) %></td>
+        <td><%= family.email %></td>
+        <td><%= link_to 'Edit', edit_family_path(family), :class => 'button tiny radius' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Family', new_family_path %>

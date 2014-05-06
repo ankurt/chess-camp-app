@@ -1,5 +1,5 @@
 ChessCamp::Application.routes.draw do
-  get "sessions/new"
+
   # generated routes
   resources :curriculums
   resources :instructors
@@ -7,6 +7,7 @@ ChessCamp::Application.routes.draw do
   resources :locations
   resources :users
   resources :sessions
+  resources :families
   
   get 'user/edit' => 'users#edit', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup

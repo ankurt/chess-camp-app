@@ -1,0 +1,9 @@
+<ul>
+	<li>Family Name: <%= @family.family_name %></li>
+	<li>Parent First Name: <%= @family.parent_first_name %></li>
+	<li>Phone Number: <%= number_to_phone(@family.phone) %></li>
+	<li>Email: <%= @family.email %></li>
+</ul>
+
+<%= link_to "Edit this family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy family', family_path(@family), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
