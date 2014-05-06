@@ -5,7 +5,7 @@
 <strong>Street 1:&nbsp;&nbsp;</strong> 
   <%= @location.street_1 %><br /><br />
 
-<% if !@location.street_2.nil? %>
+<% if !@location.street_2.empty? %>
 <strong>Street 2:</strong>
 	<%= @location.street_2 %>
 	<br/><br/>

@@ -26,9 +26,8 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
     if @location.save
-      redirect_to @location, notice: "#{@location.name} was added to the system."
+      redirect_to @location, notice: "#{@location.name} location was added to the system."
     else
       render action: 'new'
     end
@@ -47,7 +46,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
+        format.html { redirect_to @location, notice: '#{@location.name} location was revised in the system' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -74,6 +73,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :street_1, :max_capacity, :street_2, :state, :city, :zip, :active)
+      params.require(:location).permit(:name, :street_1, :max_capacity, :street_2, :state, :city, :zip, :latitude, :longitude, :active)
     end
 end
