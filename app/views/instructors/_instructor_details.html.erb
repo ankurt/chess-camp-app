@@ -8,11 +8,23 @@
 <strong>Email:&nbsp;&nbsp;</strong> 
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
-<strong>Active?&nbsp;&nbsp;</strong>
-  <%= @instructor.active ? "Yes" : "No" %><br /><br />
+<%= @instructor.user %>
+
+<% unless @instructor.user.role.nil? %>
+<strong>Role&nbsp;&nbsp;</strong>
+  <%= @instructor.user.role %><br /><br />
+<% end %>
+
+<% unless @instructor.user.username.nil? %>
+<strong>Username&nbsp;&nbsp;</strong>
+  <%= @instructor.user.username %><br /><br />
+<% end %>
 
 <strong>Biography</strong><br />
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
+
+  <strong>Active?&nbsp;&nbsp;</strong>
+  <%= @instructor.active ? "Yes" : "No" %><br /><br />
  
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;

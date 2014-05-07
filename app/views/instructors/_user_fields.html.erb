@@ -1,0 +1,9 @@
+ <div class="field">
+  <div class="form-inputs">
+  	<%= f.input :username %>
+  	<%= f.input :password %>
+  	<%= f.input :password_confirmation %>
+  	<%= f.label :role %>
+  	<%= f.select :role, options_for_select(["Instructor", "Administrator"]) %>
+  </div>
+</div>
