@@ -18,10 +18,6 @@ class User < ActiveRecord::Base
   # for use in authorizing with CanCan
   ROLES = [['Administrator', :admin],['Instructor', :instructor]]
 
-  # def self.authenticate(email,password)
-  #   find_by_email(email).try(:authenticate, password)
-  # end
-
   def role?(authorized_role)
     return false if role.nil?
     role.downcase.to_sym == authorized_role
