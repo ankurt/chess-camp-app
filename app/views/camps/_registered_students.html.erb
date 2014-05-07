@@ -1,0 +1,17 @@
+<% unless Registration.where(camp_id: @camp.id).to_a.empty? %>
+<h4>Registered Students</h4>
+	<table>
+		<tbody>
+			<tr>
+				<th>Name</th>
+				<th>Rating</th>
+			</tr>
+			<% Registration.where(camp_id: @camp.id).to_a.each do |student| %>
+			<tr>
+				<td><%= student.student.name %></td>
+				<td><%= student.student.rating == 0 ? "Unrated" : student.student.rating %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>

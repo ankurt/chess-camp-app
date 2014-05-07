@@ -28,7 +28,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: '#{@student.first_name} #{@student.last_name} was successfully created.' }
+        format.html { redirect_to @student, notice: "#{@student.first_name} #{@student.last_name} was added to they system" }
         format.json { render action: 'show', status: :created, location: @student }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to @student, notice: "#{@student.proper_name} was revised in the system" }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +69,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params[:student]
+      params.require(:student).permit(:first_name, :last_name, :rating, :family_id, :date_of_birth, :active)
+
     end
 end
