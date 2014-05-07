@@ -6,7 +6,10 @@
         <%= f.input :last_name %>
         <%= f.input :rating %>
         <%= f.input :family_id, collection: Family.active.alphabetical,:label_method => lambda {|family| "#{family.family_name}"}, prompt: "Select family..."%>
-        <%= f.input :date_of_birth, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
+<script>
+
+</script>
+        <%= f.input :date_of_birth, as: :string, input_html: {class: 'datepicker' } %>
         <%= f.input :active %>
       </div>
       <div class="small-1 columns">&nbsp;</div>

@@ -1,0 +1,19 @@
+<% unless Registration.where(student_id: @student.id).to_a.empty? %>
+<div>
+  <h3> Registered Camps </h3>
+  <table>
+  	<tbody>
+  		<tr>
+	  		<th>Camp</th>
+	  		<th>Date</th>
+  		</tr>
+	    <% Registration.where(student_id: @student.id).to_a.each do |student| %>
+	    	<tr>
+		      <td><%= link_to "#{student.camp.name}", camp_path(student) %></td>
+		      <td><%= student.camp.start_date.strftime("%m/%d/%y") %></td>
+	      </tr>
+	    <% end %>
+  	</tbody>
+  </table>
+</div>
+<% end %>
