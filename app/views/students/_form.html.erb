@@ -1,10 +1,21 @@
-<%= simple_form_for(@student) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@student, html: { class: 'form-horizontal' }) do |f| %>
+       
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :rating %>
+        <%= f.input :family_id, collection: Family.active.alphabetical,:label_method => lambda {|family| "#{family.family_name}"}, prompt: "Select family..."%>
+        <%= f.input :date_of_birth, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 1, end_year: Date.today.year + 1 %>
+        <%= f.input :active %>
+      </div>
+      <div class="small-1 columns">&nbsp;</div>
+      <div class="small-5 columns"></div>
+    </div>
 
-  <div class="form-inputs">
-  </div>
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of students', students_path, :class => 'button secondary radius' %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>

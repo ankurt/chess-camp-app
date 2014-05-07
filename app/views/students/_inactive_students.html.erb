@@ -1,0 +1,10 @@
+<% unless Student.inactive.to_a.empty? %>
+<div class="panel clearfix">
+  <h3> Inactive Students </h3>
+  <ul>
+    <% Student.inactive.to_a.each do |student| %>
+      <li><%= link_to "#{student.name}", student_path(student) %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

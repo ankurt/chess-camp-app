@@ -1,0 +1,28 @@
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= link_to student.name, student_path(student) %></td>
+            <td><%= student.age %></td>
+            <td><%= student.rating == 0 ? 'Unrated' : student.rating %></td>
+            <td><%= link_to 'Edit', edit_student_path(student) %></td>
+            <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <span class="paginate">
+      <%= will_paginate @students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+    </span>
+
+    <%= link_to 'New Student', new_student_path %>
