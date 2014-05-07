@@ -8,14 +8,12 @@
 <strong>Email:&nbsp;&nbsp;</strong> 
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
-<%= @instructor.user %>
-
-<% unless @instructor.user.role.nil? %>
+<% unless @instructor.user.nil? %>
 <strong>Role&nbsp;&nbsp;</strong>
   <%= @instructor.user.role %><br /><br />
 <% end %>
 
-<% unless @instructor.user.username.nil? %>
+<% unless @instructor.user.nil? %>
 <strong>Username&nbsp;&nbsp;</strong>
   <%= @instructor.user.username %><br /><br />
 <% end %>

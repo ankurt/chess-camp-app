@@ -29,7 +29,9 @@ class InstructorsController < ApplicationController
     if @instructor.save
       redirect_to @instructor, notice: "#{@instructor.proper_name} was added to the system."
     else
+      flash[:notice] = "You have successfully logged out."
       render action: 'new'
+      @instructor.build_user
     end
   end
 
@@ -52,6 +54,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active)
+      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes: [:username, :password, :password_confirmation, :role, :id])
     end
 end
