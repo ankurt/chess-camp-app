@@ -6,13 +6,21 @@ ul {
 	list-style: none;
 }
 
+#user {
+	margin-top: 10px;
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+    background: #ddc; 
+}
+
 .top-bar {
 	margin-bottom: 0px !important;
 	background-color: #FFA319 !important;
 }
 
 .contain-to-grid.fixed {
-	box-shadow: 0px 5px 10px #fff;
+	box-shadow: 0px 5px 10px #eee;
 }
 
 .contain-to-grid, .top-bar li a{

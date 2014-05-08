@@ -6,12 +6,15 @@
 				<th>Name</th>
 				<th>Rating</th>
 			</tr>
-			<% Registration.where(camp_id: @camp.id).to_a.each do |registration| %>
+			<% @registrations.to_a.each do |registration| %>
 			<tr>
 				<td><%= link_to "#{registration.student.name}", student_path(registration.student) %></td>
 				<td><%= registration.student.rating == 0 ? "Unrated" : registration.student.rating %></td>
+				<td><%= link_to 'Unregister', camp_path(@camp), data: { confirm: 'Are you sure you want to unregister this student from the system?' }, method: 'delete', class: "button tiny radius alert" %>
 			</tr>
 			<% end %>
 		</tbody>
 	</table>
+	<%= link_to 'Register Student', new_registration_path %>
+
 <% end %>
