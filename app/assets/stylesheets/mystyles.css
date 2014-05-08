@@ -2,8 +2,21 @@ body {
 	background: #ddd;
 }
 
+ul {
+	list-style: none;
+}
+
 .top-bar {
 	margin-bottom: 0px !important;
+	background-color: #FFA319 !important;
+}
+
+.contain-to-grid.fixed {
+	box-shadow: 0px 5px 10px #fff;
+}
+
+.contain-to-grid, .top-bar li a{
+	background-color: #FFA319 !important;
 }
 
 .has-dropdown a{

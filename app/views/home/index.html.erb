@@ -8,8 +8,11 @@
   instructors and in the future will actually allow you to register your son 
   or daughter for those camps. [<%= link_to "O Happy Day!", "https://www.youtube.com/watch?v=a37bBm8pXSk" %>]
 </p>
+<p>If you have an account, <%= link_to "click here to login", camps_path %></p>
+   <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
 
-<p>If you are an administrator (don't lie), <%= link_to "click here to review camps.", camps_path %></p>
 <% elsif current_user.role == "instructor" %>
 	<%= render :partial => "instructor_dashboard" %>
+<% elsif current_user.role == "admin" %>
+	<h1>You are God, do as you please</h1>
 <% end %>
