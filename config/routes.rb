@@ -9,7 +9,7 @@ ChessCamp::Application.routes.draw do
   resources :sessions
   resources :families
   resources :students
-  resources :registration
+  resources :registrations
 
   get 'user/edit' => 'users#edit', :as => :edit_current_user
   get 'signup' => 'users#new', :as => :signup
