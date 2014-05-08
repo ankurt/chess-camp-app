@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :check_login
+  authorize_resource
   # GET /students
   # GET /students.json
   def index
@@ -14,13 +15,11 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    authorize! :new, @student
     @student = Student.new
   end
 
   # GET /students/1/edit
   def edit
-    authorize! :update, @student
   end
 
   # POST /students
@@ -42,7 +41,6 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
-    authorize! :update, @student
     respond_to do |format|
       if @student.update(student_params)
         format.html { redirect_to @student, notice: "#{@student.proper_name} was revised in the system" }
@@ -57,7 +55,6 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    authorize! :destroy, @student
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url }

@@ -9,6 +9,7 @@
 
       <tbody>
         <% @students.each do |student| %>
+        <% if can? :read, student %>
           <tr>
             <td><%= link_to student.name, student_path(student) %></td>
             <td><%= student.age %></td>
@@ -16,6 +17,7 @@
             <td><%= link_to 'Edit', edit_student_path(student) %></td>
             <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>

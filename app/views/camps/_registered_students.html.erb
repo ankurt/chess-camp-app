@@ -6,10 +6,10 @@
 				<th>Name</th>
 				<th>Rating</th>
 			</tr>
-			<% Registration.where(camp_id: @camp.id).to_a.each do |student| %>
+			<% Registration.where(camp_id: @camp.id).to_a.each do |registration| %>
 			<tr>
-				<td><%= student.student.name %></td>
-				<td><%= student.student.rating == 0 ? "Unrated" : student.student.rating %></td>
+				<td><%= link_to "#{registration.student.name}", student_path(registration.student) %></td>
+				<td><%= registration.student.rating == 0 ? "Unrated" : registration.student.rating %></td>
 			</tr>
 			<% end %>
 		</tbody>

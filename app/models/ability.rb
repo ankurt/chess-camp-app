@@ -5,11 +5,27 @@ class Ability
     user ||= User.new
       if user.role? :admin
         can :manage, :all
+      elsif user.role? :instructor
+        can :update, Instructor do |instructor|  
+          instructor.id == user.instructor_id
+        end
+        can :read, Instructor do |instructor|  
+          instructor.id == user.instructor_id
+        end
+        can :read, Student do |student|
+            instructor = user.instructor
+            all_camps_teaching = instructor.camps.to_a
+            students_teaching = Array.new
+            all_camps_teaching.each do |camp|
+                camp.registrations.each do |registration|
+                    students_teaching += [registration.student.name]
+                end
+            end
+            students_teaching.include?(student.name)
+        end
+        can :read, Camp
       else
         can :read, :all
-      end
-
-      if user.role? :instructor
       end
     # Define abilities for the passed in user here. For example:
     #
